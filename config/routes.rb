@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'relationships/create'
   get 'relationships/destroy'
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+  }
   root 'home#top'
   get 'home/about'
   resources :users, only: [:show,:index,:edit,:update] do
